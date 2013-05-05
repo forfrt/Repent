@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+  <display-name></display-name>	
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <env-entry>
+  	<env-entry-name>ssidKey</env-entry-name>
+  	<env-entry-type>java.lang.String</env-entry-type>
+  	<env-entry-value>@repent.com</env-entry-value>
+  </env-entry>
+
+<!-- home页面Ajax所用servlet,异步得到更多浏览文章 -->
+  <servlet>
+  	<servlet-name>getMoreNArticles</servlet-name>
+  	<servlet-class>servlet.GetMoreNArticlesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>getMoreNArticles</servlet-name>
+  	<url-pattern>/getMoreNArticles.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>rememberMe</servlet-name>
+  	<servlet-class>servlet.RememberMeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>rememberMe</servlet-name>
+  	<url-pattern>/rememberMe.do</url-pattern>
+  </servlet-mapping>
+  
+<!-- SCFilter，处理session与cookie -->
+  <filter>
+  	<filter-name>SCFilter</filter-name>
+  	<filter-class>filter.SCFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>SCFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+<!-- struts分发器 -->
+  <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>
+  		org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+  	</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>struts2</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+</web-app>  

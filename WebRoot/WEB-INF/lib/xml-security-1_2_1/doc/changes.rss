@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91"><channel><title> Changes</title><link>changes.html</link><description> Changes</description><language>en-us</language><item><title>java_general fix
+                (bug 32836)
+              </title><link>changes.html</link><description>java_general fix
+              by 
+              RB
+                (fixes bug 32836)
+              
+              :
+              
+    &#9;Fix a memory leak when using xpath or using ResourceResolver and not hitting getElementByIdUsingDOM()
+    &#9; Thanks to Sylvain Dusart.</description></item><item><title>java_general fix</title><link>changes.html</link><description>java_general fix
+              by 
+              RB
+              :
+              
+        Fix erroneous creation/verification when using XPath2Filter and inclusive c14n.</description></item><item><title>java_general fix
+                (bug 23554)
+              </title><link>changes.html</link><description>java_general fix
+              by 
+              RB
+                (fixes bug 23554)
+              
+              :
+              
+        Library now throws an exception when asked to sign/verify an inexistent fragment. Thanks to Raymond Wong.</description></item><item><title>java_general fix</title><link>changes.html</link><description>java_general fix
+              by 
+              RB
+              :
+              
+ &#9;&#9;Restore reset behaviour as default when reusing Canonicalizers(but an append one can still be used).</description></item><item><title>java_general fix
+                (bug 33393)
+              </title><link>changes.html</link><description>java_general fix
+              by 
+              RB
+                (fixes bug 33393)
+              
+              :
+              
+        Fix a bug when using base64transformation and external resources. Thanks to Sean Mullan.</description></item><item><title>java_general fix</title><link>changes.html</link><description>java_general fix
+              by 
+              RB
+              :
+              
+        Fix a bug when passing XMLsignatureInput(InputStream) streams that don't acknowledge reset() as expected.
+        </description></item><item><title>java_general fix
+                (bug 32996)
+              </title><link>changes.html</link><description>java_general fix
+              by 
+              RB
+                (fixes bug 32996)
+              
+              :
+              
+        Added i14n Base64 error message.
+         Thanks to Sean Mullan.</description></item><item><title>external-libs remove</title><link>changes.html</link><description>external-libs remove
+              by 
+              RB
+              :
+              
+        Clean unused jar (xmlParserAPI.jar,etc) and check and stored new versions.
+        </description></item><item><title>external-libs update</title><link>changes.html</link><description>external-libs update
+              by 
+              RB
+              :
+              
+        Generated the dist jar with version (i.e. xmlsec-1.2.1.jar instead of plain xmlsec.jar)
+        </description></item><item><title>build remove</title><link>changes.html</link><description>build remove
+              by 
+              RB
+              :
+              
+    &#9;Clean unused build*.xml files.
+&#9;    </description></item></channel></rss>

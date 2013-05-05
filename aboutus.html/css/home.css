@@ -1,0 +1,37 @@
+#editor {
+	max-height: 256px;
+	height: 250px;
+    width: 610px;
+	background-color: white;
+	border-collapse: separate; 
+	border: 1px solid rgb(204, 204, 204);
+	padding: 4px;
+	box-sizing: content-box; 
+	box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+	border-radius: 5px;
+	overflow: scroll;
+}
+input#title{
+    width: 620px;
+    height: 15px;
+    margin: 0 0 5px 20px;
+}
+input.hiden{
+    display: none;
+}
+div.btn-toolbar{
+    margin: 0 0 3px 0;
+}
+input#output{
+    margin-top: 220px;
+}
+div[data-role="editor-toolbar"] {
+    user-select: none;
+}
+
+.dropdown-menu a {
+  cursor: pointer;
+}
+input#title, div#editor{
+    margin-left: 0;
+}

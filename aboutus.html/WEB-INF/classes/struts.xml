@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="Repent" extends="struts-default">
+	
+		<action name="Login" class="action.LoginAction">
+			<result type="chain" name="success">Home</result>
+		</action>
+		
+		<action name="Signup" class="action.SignupAction">
+			<result name="success">/index.jsp</result>
+		</action>
+		
+		<action name="Home" class="action.HomeAction">
+			<result name="success">/home.jsp</result>
+		</action>
+		
+		<action name="Compose" class="action.ComposeAction">
+			<result type="chain" name="success">Home</result>
+		</action>
+		
+	</package>
+</struts>    
