@@ -1,0 +1,153 @@
+package action;
+
+import java.sql.SQLException;
+
+import javax.annotation.Resource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.JComboBox.KeySelectionManager;
+
+import org.apache.struts2.ServletActionContext;
+
+import params.Properties;
+import pojo.Users;
+import util.CookieTool;
+import util.Md5;
+import util.RequestUID;
+import util.SessionTool;
+import impl.UsersImpl;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.sun.xml.internal.ws.transport.http.client.HttpCookie;
+
+public class LoginAction extends ActionSupport{
+	
+	private String ssidKey=new Properties().getSsidKey();
+	// TODO :remeber_me鎸夐挳鐨勫叿浣撳疄鐜�
+	
+	private Users currentUser;
+	
+	public String execute(){
+	
+		//TODO:寰呬紭鍖�鐗瑰埆鏄粠UsersImpl涓幏寰楁暟鎹苟娣诲姞鍒皊ession涓巖equest涓�
+		
+		System.out.println("------------action.LoginAction.execute method start------------");
+		
+		UsersImpl userImpl=new UsersImpl();
+		
+		CookieTool cookieTool=new CookieTool();
+		
+		SessionTool sessionTool=new SessionTool();
+		
+		//ActionContext鏂瑰紡鍙栧緱request銆乺esponse銆乻ession
+		
+		ActionContext cxt = ActionContext.getContext();
+		
+		HttpServletRequest request=(HttpServletRequest)cxt.get
+				(ServletActionContext.HTTP_REQUEST);
+		
+		HttpServletResponse response=(HttpServletResponse)cxt.get
+				(ServletActionContext.HTTP_RESPONSE);
+		
+		HttpSession session=request.getSession();
+		
+		
+		try {
+		
+			String[] loginResultString=userImpl.Login(currentUser);
+			
+			if(loginResultString[loginResultString.length-1].equals("success")){
+			
+				//杩欓噷鐨勯棶棰樺湪浜�currentUser鐨剈Name鐨勭‘鏄痭ull,琛ㄥ崟涓笉瑕佹眰uName涓巙Id,搴斾粠鏁版嵁搴撲腑鏌ユ壘
+				
+				currentUser.setuId(new Integer(loginResultString[0]));
+				
+				currentUser.setuName(loginResultString[1]);
+				
+				System.out.println("action.LoginAction.execute.currentUser.uId: "+currentUser.getuId());
+				
+				System.out.println("action.LoginAction.execute.currentUser.uName: "+currentUser.getuName());
+				
+				//娣诲姞cookie涓巗ession,杩欓噷閮芥槸鍙洿鎺ヨ鐩栫殑,鍥犳鏃犻渶鍒ゆ柇鏄惁宸茬粡瀛樺湪
+				Cookie uNameCookie[]=cookieTool.getCookieUName(currentUser);
+				
+				for(Cookie cookie:uNameCookie){
+				
+					response.addCookie(cookie);
+				
+				}
+				
+				String[] keys={"uName","uId","uPhoto"};
+				
+				sessionTool.setSession(session,currentUser,keys);//鏈皟璇�椋庨櫓
+
+				request.setAttribute("uId", loginResultString[0]);//浼樺寲,瑙ｈ�!
+				
+				/*
+				 * System.out.println("----------------------------------------" + loginResultString[0]);
+				 */
+				System.out.println("********************************************************");
+				
+				request.setAttribute("uName", loginResultString[1]);
+				
+				request.setAttribute("uPhotoUri", loginResultString[2]);
+				
+				System.out.println("action.LoginAction.execute.ssidKey: "+ssidKey);
+				
+				System.out.println("action.LoginAction.execute.ssid: "+Md5.calcMD5(loginResultString[0]+ssidKey));
+				
+				request.setAttribute("ssid", Md5.calcMD5(loginResultString[0]+ssidKey));
+				
+				/*
+				 * 增加代码------------------------------------------------------------------------------------
+				 */
+				//RequestUID.setRequest(request);
+				RequestUID.setSession(session);
+				System.out.println("UID 的数值是多少  " + session.getAttribute("uId"));
+				//RequestUID.setHttpSession(session1)
+				//System.out.println(RequestUID.getUID());
+				
+				System.out.println("********************************************************");
+				
+			
+				/*
+				 *----------------------------------------------------------------------------------------------- 
+				 */
+				
+				//鍥犱负杩欎釜action鏄櫥褰昦ction,娑夊強鍒颁簡娣诲姞session涓巆ookie...
+				//鑰屽垰娣诲姞鐨剆c鏃犳硶琚玈Cfilter绔嬪埢鏀惧叆request鐨刟ttribute涓�..
+				//鍥犳闇�鍦ㄨ繖閲屾墜鍔ㄥ皢uName鍊兼坊鍔犲埌request鐨刟ttribute涓�..
+				//鍚﹀垯浼氬嚭鐜皉equest涓璾Name涓巗ession涓璾Name涓嶇,鍗硆equest涓璾Name涓轰笂涓�敤鎴穟Name...
+				//杩欐槸鐢盨Cfilter鍦╳eb.xml涓珮浜巗truts瀵艰嚧鐨�..
+				return "success";
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		System.out.println("++++++++++++action.LoginAction.execute method end++++++++++++");
+		
+		return "failed";		
+	}
+
+	public Users getCurrentUser() {
+	
+		return currentUser;
+	
+	}
+
+	public void setCurrentUser(Users currentUser) {
+	
+		this.currentUser = currentUser;
+	
+	}
+
+}

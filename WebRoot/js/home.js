@@ -327,6 +327,7 @@ $(document).ready(function(){
         this.submit();
     });
 });
+
 /*
 * 以下部分为home页面Ajax代码
 * Author :FRT
@@ -351,7 +352,7 @@ function createXMLHttpRequest() {
 function sendRequest() {
     createXMLHttpRequest();
     var lastArticleField=$("#content>.well:last")[0];
-    var url = "getMoreNArticles.do?aId="+escape(lastArticleField.id);
+    var url = "getMoreNArticles.do?nId="+escape(lastArticleField.id);
     alert(lastArticleField.nodeName+lastArticleField.nodeType+lastArticleField.id);
     XMLHttpReq.open("GET", url, true);
     XMLHttpReq.onreadystatechange = processResponse;//指定响应函数
@@ -374,13 +375,11 @@ function DisplayMoreArticles() {
     var length=XMLHttpReq.responseXML.getElementsByTagName("section").length;
 
     for(var i=0;i<length;i++){
-        aId=XMLHttpReq.responseXML.getElementsByTagName("aId")[i].firstChild.nodeValue;
-        aTitle=XMLHttpReq.responseXML.getElementsByTagName("aTitle")[i].firstChild.nodeValue;
-        aContent=XMLHttpReq.responseXML.getElementsByTagName("aContent")[i].firstChild.nodeValue;
-        uId=XMLHttpReq.responseXML.getElementsByTagName("uId")[i].firstChild.nodeValue;
-        aTime=XMLHttpReq.responseXML.getElementsByTagName("aTime")[i].firstChild.nodeValue;
-        aBrCount=XMLHttpReq.responseXML.getElementsByTagName("aBrCount")[i].firstChild.nodeValue;
-        aReCount=XMLHttpReq.responseXML.getElementsByTagName("aReCount")[i].firstChild.nodeValue;
+        aId=XMLHttpReq.responseXML.getElementsByTagName("nId")[i].firstChild.nodeValue;
+        aTitle=XMLHttpReq.responseXML.getElementsByTagName("nTitle")[i].firstChild.nodeValue;
+        aContent=XMLHttpReq.responseXML.getElementsByTagName("nContent")[i].firstChild.nodeValue;
+        uId=XMLHttpReq.responseXML.getElementsByTagName("nId")[i].firstChild.nodeValue;
+        aTime=XMLHttpReq.responseXML.getElementsByTagName("nTime")[i].firstChild.nodeValue;
 
         var divStr="<div class='well'></div>";
         var h4Str="<h4>"+aTitle+"</h4>";

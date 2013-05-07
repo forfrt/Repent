@@ -8,16 +8,21 @@
     <link href="css/bootstrap-responsive.min.css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body{
+            background: url("img/bg.png");
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="home.html">忏悔网</a>
+                <a class="brand" href="home.jsp">忏悔网</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="home.html">首页</a></li>
-                        <li class="active"><a href="#data">资料</a></li>
+                        <li><a href="home.jsp">首页</a></li>
+                        <li class="active"><a href="#">资料</a></li>
                         <li><a href="aboutus.html">关于我们</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" data-target="#" href="#">
@@ -27,7 +32,7 @@
                                     <li><a href="http://weibo.com/fxw490769750">新浪微博</a></li>
                                     <li><a href="http://t.qq.com/fxw945">腾讯微博</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">微信</a></li>
+                                    <li><a href="#myModal" role="button" class="" data-toggle="modal">微信</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -66,44 +71,80 @@
         </div>
     </div>
 
+    <!-- 微信关注我的窗口放在这里 -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" data-aria-labelledby="myModalLabel" data-aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" data-aria-hidden="true">×</button>
+            <h3 id="myModalLabel2">忏悔网的微信（coder_muyu）</h3>
+        </div>
+        <div class="modal-body">
+            <img src="img/wx.jpg" alt="coder_muyu">
+        </div>
+    </div>
     <div id="mainpart" class="container">
         <div class="row">
             <hr>
-            <div id="content" class="span9">
-                <ul class="nav nav-tabs">
-                    <li class="dropdown">
-                        <a  class="dropdown-toggle" data-toggle="dropdown" role="button" data-target="#" href="#">音乐</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <!--文章的列表放在这里-->
-                            <li><a href="#">如何忏悔</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a  class="dropdown-toggle" data-toggle="dropdown" role="button" data-target="#" href="#">视屏</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <!--文章的列表放在这里-->
-                            <li><a href="#">如何忏悔</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a  class="dropdown-toggle" data-toggle="dropdown" role="button" data-target="#" href="#">图片</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <!--文章的列表放在这里-->
-                            <li><a href="#">如何忏悔</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a  class="dropdown-toggle" data-toggle="dropdown" role="button" data-target="#" href="#">文章</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <!--文章的列表放在这里-->
-                            <li><a href="#">如何忏悔</a></li>
-                        </ul>
-                    </li>
+            <div id="content" class="span9 tabbable">
+                <ul class="nav nav-tabs nav-pills">
+                    <li class="active"><a data-toggle="tab" href="#music">音乐</a></li>
+                    <li><a data-toggle="tab" href="#video">视屏</a></li>
+                    <li><a data-toggle="tab" href="#picture">图片</a></li>
+                    <li><a data-toggle="tab" href="#article">文章</a></li>
                 </ul>
+                <div id="music-list" class="tab-content">
+                    <div class="tab-pane fade active in" id="music">
+                        <ul class="nav nav-list">
+                            <li><a href="data/music/repent.mp3">music.a</a></li>
+                            <li>music.b</li>
+                            <li>music.c</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="video">
+                        <ul class="nav nav-list">
+                            <li>video.a</li>
+                            <li>video.b</li>
+                            <li>video.c</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="picture">
+                        <ul class="nav nav-list">
+                            <li>picture.a</li>
+                            <li>picture.b</li>
+                            <li>picture.c</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade" id="article">
+                        <ul class="nav nav-list">
+                            <li><a href="data/article/“昔尝游令尹，今时事客卿”-梁末入北文人的忏悔思想.pdf">“昔尝游令尹，今时事客卿”-梁末入北文人的忏悔思想</a></li>
+                            <li><a href="data/article/《红楼梦》研究之“忏悔”说.pdf">《红楼梦》研究之“忏悔”说</a></li>
+                            <li><a href="data/article/《中国的忏悔录》对后世的深远影响.pdf">《中国的忏悔录》对后世的深远影响</a></li>
+                            <li><a href="data/article/19世纪俄罗斯文学中的罪感情怀与忏悔意识.pdf">19世纪俄罗斯文学中的罪感情怀与忏悔意识</a></li>
+                            <li><a href="data/article/禅宗无相忏悔的理论与实践.pdf">禅宗无相忏悔的理论与实践</a></li>
+                            <li><a href="data/article/忏悔.pdf">忏悔</a></li>
+                            <li><a href="data/article/忏悔的勇气.pdf">忏悔的勇气</a></li>
+                            <li><a href="data/article/忏悔观念与中国文化之悔过精神.pdf">忏悔观念与中国文化之悔过精神</a></li>
+                            <li><a href="data/article/忏悔是一件“思”的事情.pdf">忏悔是一件“思”的事情</a></li>
+                            <li><a href="data/article/兼谈卢梭《忏悔录》的美学与哲学因素.pdf">兼谈卢梭《忏悔录》的美学与哲学因素</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 分页显示功能待定
+                <div class="pagination pull-right">
+                    <ul>
+                        <li><a href="#"><<</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">>></a></li>
+                    </ul>
+                </div>
+                -->
             </div>
         </div>
     </div>
-    <div style="height: 520px"></div>
+    <div style="height: 20px"></div>
     <footer class="modal-footer">
     <div class="container">
         <p class="text-center text-info">忏悔网 ©2013</p>

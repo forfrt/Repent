@@ -55,13 +55,13 @@ public class SCFilter implements Filter {
 			//获取session中的key值
 			String uArg=(String) session.getAttribute(key);
 			if(uArg!=null&&uArg.equalsIgnoreCase("")==false){
-				//若uName不为空,则将session中的uName值赋到request的attribute中
+				//若uArg不为空,则将session中的key值赋到request的attribute中
 				System.out.println("SCFilter.doFilter.request.getSession()."+key+"!=null");
 				System.out.println("SCFilter.doFilter.request.getSession()."+key+"： "+uArg);
 				
 			}else{
 				uArg=null;
-				//若key为空,则查找cookie中是否含有uName
+				//若key为空,则查找cookie中是否含有key
 				System.out.println("SCFilter.doFilter.request.getSession()."+key+"==null");
 				Cookie[] cookies=request.getCookies();//取得所有cookies键值对
 				for(int i=0;cookies!=null&&i<cookies.length;i++){
@@ -96,3 +96,4 @@ public class SCFilter implements Filter {
 	}
 
 }
+

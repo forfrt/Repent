@@ -31,11 +31,17 @@ public class ComposeAction {
 		//取得当前用户uId,uName
 		String RequestuName=new RequestTool().getValue(request,"uName");
 //		int RequestuId=new Integer(new RequestTool().getValue(request,"uId"));//问题
+		
 		System.out.println("action.ComposeAction.execute.request.getAttribute('uId'): "+request.getAttribute("uId"));
+		
 		int RequestuId=new Integer((String)request.getAttribute("uId")) ;
+		
 		System.out.println("action.ComposeAction.execute.RequestuName: "+RequestuName);
+		
 		System.out.println("action.ComposeAction.execute.RequestuId: "+RequestuId);
+		
 		currentUser.setuId(RequestuId);
+		
 		currentUser.setuName(RequestuName);
 		
 		try {

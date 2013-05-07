@@ -1,0 +1,109 @@
+package pojo;
+
+import java.sql.Timestamp;
+
+public class Replys {
+	/*
+	 * repent.renews
+	 */
+	private int rId;//帖子的ID
+	
+	private int rnId;//原帖子ID
+	
+	private int rmuId;//发评论人ID
+	
+	private String rContent;//评论的内容
+	
+	private Timestamp rTime;//评论的时间
+	
+	private int ruID;//被评论人的ID
+	
+	private int rsCount;//浏览次数
+	
+	private int rCount;//评论次数
+	
+	
+	public int getrId() {
+		return rId;
+	}
+
+
+	public void setrId(int rId) {
+		this.rId = rId;
+	}
+
+
+	public int getRnId() {
+		return rnId;
+	}
+
+
+	public void setRnId(int rnId) {
+		this.rnId = rnId;
+	}
+
+
+	public int getRmuId() {
+		return rmuId;
+	}
+
+
+	public void setRmuId(int rmuId) {
+		this.rmuId = rmuId;
+	}
+
+
+	public String getrContent() {
+		return rContent;
+	}
+
+
+	public void setrContent(String rContent) {
+		this.rContent = rContent;
+	}
+
+
+	public Timestamp getrTime() {
+		return rTime;
+	}
+
+
+	public void setrTime(Timestamp rTime) {
+		this.rTime = rTime;
+	}
+
+
+	public int getRuID() {
+		return ruID;
+	}
+
+
+	public void setRuID(int ruID) {
+		this.ruID = ruID;
+	}
+
+
+	public int getRsCount() {
+		return rsCount;
+	}
+
+
+	public void setRsCount(int rsCount) {
+		this.rsCount = rsCount;
+	}
+
+
+	public int getrCount() {
+		return rCount;
+	}
+
+
+	public void setrCount(int rCount) {
+		this.rCount = rCount;
+	}
+
+
+	public String Details(){
+		return null;
+	}
+}

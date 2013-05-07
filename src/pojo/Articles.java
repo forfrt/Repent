@@ -6,56 +6,43 @@ public class Articles {
 	/*
 	 * repent.news
 	 */
-	public int aId;
-	public String aTitle;
-	public String aContent;
+	public int nId;
+	public String nTitle;
+	public String nContent;
 	public int uId;
-	public Timestamp aTime;
-	public int aBrCount;
-	public int aReCount;
+	public Timestamp nTime;
 	
-	public int getaId() {
-		return aId;
+	public int getnId() {
+		return nId;
 	}
-	public String getaTitle() {
-		return aTitle;
+	public void setnId(int nId) {
+		this.nId = nId;
 	}
-	public String getaContent() {
-		return aContent;
+	public String getnTitle() {
+		return nTitle;
+	}
+	public void setnTitle(String nTitle) {
+		this.nTitle = nTitle;
+	}
+	public String getnContent() {
+		return nContent;
+	}
+	public void setnContent(String nContent) {
+		this.nContent = nContent;
 	}
 	public int getuId() {
 		return uId;
 	}
-	public Timestamp getaTime() {
-		return aTime;
-	}
-	public int getaBrCount() {
-		return aBrCount;
-	}
-	public int getaReCount() {
-		return aReCount;
-	}
-	public void setaId(int aId) {
-		this.aId = aId;
-	}
-	public void setaTitle(String aTitle) {
-		this.aTitle = aTitle;
-	}
-	public void setaContent(String aContent) {
-		this.aContent = aContent;
-	}
 	public void setuId(int uId) {
 		this.uId = uId;
 	}
-	public void setaTime(Timestamp aTime) {
-		this.aTime = aTime;
+	public Timestamp getnTime() {
+		return nTime;
 	}
-	public void setaBrCount(int aBrCount) {
-		this.aBrCount = aBrCount;
+	public void setnTime(Timestamp nTime) {
+		this.nTime = nTime;
 	}
-	public void setaReCount(int aReCount) {
-		this.aReCount = aReCount;
-	}
+	
 	
 //	public String Details(){
 //		return "+------+------------+--------------------------------+---------------+--------+--------------------+------------+\n" +

@@ -70,10 +70,10 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="home.html">忏悔网</a>
+                <a class="brand" href="home.jsp">忏悔网</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="home.html">首页</a></li>
+                        <li><a href="home.jsp">首页</a></li>
                         <li><a href="data.html">资料</a></li>
                         <li><a href="aboutus.html">关于我们</a></li>
                         <li class="dropdown">
@@ -84,7 +84,7 @@
                                     <li><a href="http://weibo.com/fxw490769750">新浪微博</a></li>
                                     <li><a href="http://t.qq.com/fxw945">腾讯微博</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">微信</a></li>
+                                    <li><a href="#myModal" role="button" class="" data-toggle="modal">微信</a></li>
                                 </ul>
                             </a>
                         </li>

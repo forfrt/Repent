@@ -40,7 +40,7 @@
   <!-- home页面Ajax所用servlet,异步得到更多浏览文章 -->
   <servlet>
   	<servlet-name>getMoreNArticles</servlet-name>
-  	<servlet-class>servlet.GetMoreNArticlesServelt</servlet-class>
+  	<servlet-class>servlet.GetMoreNArticlesServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>getMoreNArticles</servlet-name>
@@ -56,13 +56,13 @@
   	<url-pattern>/rememberMe.do</url-pattern>
   </servlet-mapping>
   
-    <servlet>
-  	<servlet-name>activateEmail</servlet-name>
-  	<servlet-class>servlet.ActivateEmailServlet</servlet-class>
+  <servlet>
+  	<servlet-name>emailValidate</servlet-name>
+  	<servlet-class>servlet.EmailValidateServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>activateEmail</servlet-name>
-  	<url-pattern>/activateEmail.do</url-pattern>
+  	<servlet-name>emailValidate</servlet-name>
+  	<url-pattern>/emailValidate.do</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -72,6 +72,15 @@
   <servlet-mapping>
   	<servlet-name>sendEmail</servlet-name>
   	<url-pattern>/sendEmail.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>activateEmail</servlet-name>
+  	<servlet-class>servlet.ActivateEmailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>activateEmail</servlet-name>
+  	<url-pattern>/activateEmail.do</url-pattern>
   </servlet-mapping>
   
   <welcome-file-list>

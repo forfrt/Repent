@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="Repent" location="10,10" size="525,245">
+    <action name="Login" location="68,60" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="Home" namespace="" />
+      </result>
+    </action>
+    <action name="Signup" location="313,165" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="Home" namespace="" />
+      </result>
+    </action>
+    <action name="Home" location="68,165" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="home.jsp" />
+      </result>
+    </action>
+    <action name="Modiry" location="308,36" size="150,62">
+      <result name="SUCCESS">
+        <resourceEdge source="SUCCESS" routing="0" target="home.jsp" />
+      </result>
+      <result name="FAILURE">
+        <resourceEdge source="FAILURE" routing="0" target="modify.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="home.jsp" path="/home.jsp" location="75,297" size="150,55" />
+  <webResource name="modify.jsp" path="/modify.jsp" location="350,350" size="150,55" />
+</Struts2Diagram>
+

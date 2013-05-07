@@ -1,0 +1,64 @@
+package servlet;
+
+import java.sql.SQLException;
+import java.util.HashMap;
+
+import impl.UsersImpl;
+
+import javax.security.sasl.SaslClientFactory;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.registry.infomodel.User;
+
+import params.Properties;
+import pojo.Users;
+import util.Md5;
+
+import filter.SCFilter;
+
+public class RememberMeServlet extends HttpServlet{
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response){
+	
+		System.out.println("------------servlet.RememberMeServlet.doGet method start------------");
+		
+		String[] keys={"uId","uName"};
+		
+		HashMap<String, String>params=new SCFilter().SCInsert(request, keys);
+		
+		Users user=new Users();
+		
+		System.out.println("--------------------------------------------" + params.get("uId"));
+		
+		//这里面根本就还没有uId这个属性，所以进行报错，出现问题
+		
+		user.setuId(new Integer(params.get("uId")));
+		
+		user.setuName(params.get("uName"));
+		
+		System.out.println("uId: "+user.getuId()+"uName: "+user.getuName());
+		
+		/*try {
+			if(Md5.calcMD5(params.get("uId")+(new Properties().getSsidKey())).
+					equalsIgnoreCase(params.get("ssid"))){
+				//System.out.println("servlet.RememberMeServlet.doGet.UsersImpl.Login(user)[2]: "+new UsersImpl().Login(user)[2]);
+				request.getRequestDispatcher("/home.jsp");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		
+		System.out.println("++++++++++++servlet.RememberMeServlet.doGet method end++++++++++++");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response){
+	
+		System.out.println("------------servlet.RememberMeServlet.doPost method start------------");
+		
+		doGet(request, response);
+	
+	}
+}

@@ -2,17 +2,15 @@ package pojo;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.*;
 
 public class Users_attachment {
-	/*
-	 * repent.userattach
-	 */
-	private int uId;
-	private Date uDate;
-	private Timestamp uRDate;
-	private int uGrade;
-	private byte uSex;
-	private byte[] uPhoto;
+	public int uId;
+	public  Date uDate;
+	public  Timestamp uRDate;
+	public int uGrade;
+	public String uSex;
+	
 	public int getuId() {
 		return uId;
 	}
@@ -25,11 +23,8 @@ public class Users_attachment {
 	public int getuGrade() {
 		return uGrade;
 	}
-	public byte getuSex() {
+	public String getuSex() {
 		return uSex;
-	}
-	public byte[] getuPhoto() {
-		return uPhoto;
 	}
 	public void setuId(int uId) {
 		this.uId = uId;
@@ -43,13 +38,21 @@ public class Users_attachment {
 	public void setuGrade(int uGrade) {
 		this.uGrade = uGrade;
 	}
-	public void setuSex(byte uSex) {
+	public void setuSex(String uSex) {
 		this.uSex = uSex;
-	}
-	public void setuPhoto(byte[] uPhoto) {
-		this.uPhoto = uPhoto;
 	}
 	public String Details(){
 		return "UID = " + uId;
+	}
+	public void setuDate(String uDateConvert)
+	{
+		String pattern = "yyyy-MM-dd";
+		DateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		try{
+			uDate = new Date(simpleDateFormat.parse(uDateConvert).getTime());
+		}catch(Exception e)
+		{
+			
+		}
 	}
 }

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>忏悔网 - 注册</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/bootstrap-responsive.min.css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/check.js"></script>
     <style>
         body{
-            background: url("img/bg.jpg");
+            /*background: url("img/bg.jpg");*/
         }
     </style>
 </head>
@@ -18,10 +18,10 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="#">忏悔网</a>
+                <a class="brand" href="home.jsp">忏悔网</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li><a href="home.html">首页</a></li>
+                        <li><a href="home.jsp">首页</a></li>
                         <li><a href="data.html">资料</a></li>
                         <li><a href="aboutus.html">关于我们</a></li>
                         <li class="dropdown">
@@ -32,7 +32,7 @@
                                     <li><a href="http://weibo.com/fxw490769750">新浪微博</a></li>
                                     <li><a href="http://t.qq.com/fxw945">腾讯微博</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">微信</a></li>
+                                    <li><a href="#myModal" role="button" class="" data-toggle="modal">微信</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -45,6 +45,16 @@
             </div>
         </div>
     </div>
+    <!-- 微信关注我的窗口放在这里 -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" data-aria-labelledby="myModalLabel" data-aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" data-aria-hidden="true">×</button>
+            <h3 id="myModalLabel2">忏悔网的微信（coder_muyu）</h3>
+        </div>
+        <div class="modal-body">
+            <img src="img/wx.jpg" alt="coder_muyu">
+        </div>
+    </div>
     <div id="mainpart" class="container">
         <div class="row">
             <hr>
@@ -54,7 +64,7 @@
                         <label class="control-label" for="email_input">邮箱:</label>
                         <div class="controls">
                             <input id="email_input" type="email" name="currentUser.uEmail" />
-                            <span id="tip_email_input" class="">请输入您的邮箱作为登陆账号。</span>
+                            <span id="tip_email_input" class="alert alert-info">请输入您的邮箱作为登陆账号。</span>
                         </div>
                     </div>
 
@@ -62,7 +72,7 @@
                         <label class="control-label" for="password_input">密码:</label>
                         <div class="controls">
                             <input id="password_input" type="password" name="currentUser.uPassword"/>
-                            <span>请输入密码，6 - 20 位数字与字母的组合，区分大小写。</span>
+                            <span id="tip_password_input" class="alert alert-info" >请输入密码，6 - 20 位数字与字母的组合，区分大小写。</span>
                         </div>
                     </div>
 
@@ -70,7 +80,7 @@
                         <label for="password_reaffirm" class="control-label">确认密码:</label>
                         <div class="controls">
                             <input id="password_reaffirm" type="password" />
-                            <span id="tip_password_reaffirm" class="tips">请再次确认密码。</span>
+                            <span id="tip_password_reaffirm" class="tips alert alert-info">请再次确认密码。</span>
                         </div>
                     </div>
 
@@ -78,7 +88,7 @@
                         <label for="name_input" class="control-label">用户名:</label>
                         <div class="controls">
                             <input id="name_input" type="text" name="currentUser.uName"/>
-                            <span id="tip_name_input" class="tips">请输入您的昵称。</span>
+                            <span id="tip_name_input" class="tips alert alert-info">请输入您的昵称。</span>
                         </div>
                     </div>
 

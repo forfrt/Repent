@@ -21,7 +21,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="home.html">忏悔网</a>
+                <a class="brand" href="home.jsp">忏悔网</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li class="active"><a href="#">首页</a></li>
@@ -35,7 +35,7 @@
                                     <li><a href="http://weibo.com/fxw490769750">新浪微博</a></li>
                                     <li><a href="http://t.qq.com/fxw945">腾讯微博</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">微信</a></li>
+                                    <li><a href="#myModal" role="button" class="" data-toggle="modal">微信</a></li>
                                 </ul>
                             </a>
                         </li>
@@ -87,7 +87,16 @@
             </div>
         </div>
     </div>
-
+    <!-- 微信关注我的窗口放在这里 -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" data-aria-labelledby="myModalLabel" data-aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" data-aria-hidden="true">×</button>
+            <h3 id="myModalLabel2">忏悔网的微信（coder_muyu）</h3>
+        </div>
+        <div class="modal-body">
+            <img src="img/wx.jpg" alt="coder_muyu">
+        </div>
+    </div>
     <div id="mainpart" class="container">
         <div class="row">
             <div id="alert"></div>
@@ -148,16 +157,16 @@
                     </div>
                 </div>
                 <form  id="myform" action="Compose" method="post">
-                    <input id="title" type="text" class="span7" placeholder="标题"/>
-                    <input type="text" class="hiden">
+                    <input id="title" type="text" class="span7" placeholder="标题" name="composedArticle.nTitle"/>
+                    <input type="text" class="hiden" name="composedArticle.nContent">
                     <div id="editor" class="span7">内容&hellip;</div>
                     <input type="submit"  id="output" class="btn btn-large btn-primary pull-right" value="发表"/>
                 </form>
                 <!--页面的主要内容放在这里, 一下为示例-->
                 <c:forEach items="${articleList}" var="article">
-                <div id="${article.aId}" class="well">
-                    <h4><c:out value="${article.aTitle}"></c:out></h4>
-                    <h6><c:out value="${article.aContent }"></c:out></h6>
+                <div id="${article.nId}" class="well">
+                    <h4><c:out value="${article.nTitle}"></c:out></h4>
+                    <h6><c:out value="${article.nContent }"></c:out></h6>
                     
                     <p class="btn btn-inverse offset6"><a href="#">详细内容>></a></p>
                 </div>

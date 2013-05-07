@@ -4,7 +4,7 @@
 	<package name="Repent" extends="struts-default">
 	
 		<action name="Login" class="action.LoginAction">
-			<result type="chain" name="success">Home</result>
+			<result type="chain"  name="success">Home</result>
 		</action>
 		
 		<action name="Signup" class="action.SignupAction">
@@ -23,5 +23,19 @@
 			<result name="success">/index.jsp</result>
 		</action>
 		
+		
+		<action name="Modify" class="action.UsersAttachAction" method="getInfo">
+			<result  name = "SUCCESS">/showinfo.jsp</result>
+			<result  name = "FAILURE">/showinfo.jsp</result>
+		</action>
+		
+		<action name="Update" class="action.UsersAttachAction" method="update">
+			<result name="SUCCESS">/showinfo.jsp</result>
+			<result name="FAILURE">/showinfo.jsp</result>
+		</action>
+		
+		<action name="PersonHome" class="action.PersonHomePageAction">
+			<result name="success">/pagehome.jsp</result>
+		</action>
 	</package>
 </struts>    

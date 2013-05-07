@@ -26,8 +26,8 @@ public class RememberMeServlet extends HttpServlet{
 	private String ssidKey=new Properties().getSsidKey();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)throws IOException,ServletException{
 		/*
-		 * åˆ¤æ–­æ˜¯å¦å­˜åœ¨cookieä¸session,å¹¶éªŒè¯
-		 * è‹¥éªŒè¯é€šè¿‡åˆ™è½¬åˆ°Home
+		 * ÅĞ¶ÏÊÇ·ñ´æÔÚcookieÓësession,²¢ÑéÖ¤
+		 * ÈôÑéÖ¤Í¨¹ıÔò×ªµ½Home
 		 */
 		System.out.println("------------servlet.RememberMeServlet.doGet method start------------");
 		String[] keys={"uId","uName"};
@@ -67,3 +67,4 @@ public class RememberMeServlet extends HttpServlet{
 		doGet(request, response);
 	}
 }
+

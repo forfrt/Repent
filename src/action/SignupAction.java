@@ -40,3 +40,4 @@ public class SignupAction extends ActionSupport{
 		this.currentUser = currentUser;
 	}
 }
+

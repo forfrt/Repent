@@ -21,7 +21,6 @@ public class HomeAction extends ActionSupport {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return SUCCESS;
 	}
 	

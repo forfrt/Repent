@@ -1,6 +1,5 @@
 package impl;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,50 +16,50 @@ public class UsersAttachImp{
 	
 	public String UpGrade(Users_attachment currentUser)throws SQLException
 	{
-		System.out.println("------------impl.UsersAtachImpl.UpGrade method start------------");
-		System.out.println("提交到impl.UsersImpl.Login method中的user信息:\n"+currentUser.Details());
-		DBConn DConn = new DBConn();
-		Connection conn = DConn.getConnection();
+		System.out.println("------------impl.Users_attachment UpGrade method start------------");
 		
-		String sql = "UPDATE USERATTACH set aDate = ? and aSex = ? where uID = ?";
-		PreparedStatement p = conn.prepareStatement(sql);
+		String sql = "UPDATE users_attach set abDate = ? and auSex = ? where uID = ?";
+		PreparedStatement p = DBConn.getConnection().prepareStatement(sql);
 		p.setDate(1, currentUser.getuDate());
 		p.setString(2, new Byte(currentUser.getuSex()).toString());
 		try{
 			p.execute();
-			return "success";
+			return "SUCCESS";
 		}catch(SQLException e)
 		{
 			e.printStackTrace();
-			return "fail";
+			return "FAILURE";
 		}
 		finally{
 			p.close();
-			conn.close();
+			DBConn.getClose();
 		}
 		
 	}
 	
 	public Users_attachment getQuery(int uID) throws SQLException
 	{
-		System.out.println("------------impl.UsersAtachImpl.getQuery method start------------");
-		Users_attachment user = new Users_attachment();
-		Connection conn = new DBConn().getConnection();
-		String sql = "SELECT aDate,aSex from userattach where uID = ?";
-		PreparedStatement psQuery = conn.prepareStatement(sql);
+		Users_attachment user_attachment = new Users_attachment();
+		String sql = "SELECT abDate,auGrade,auSex,arDate from users_attach where uID = ?";
+		PreparedStatement psQuery = DBConn.getConnection().prepareStatement(sql);
 		
 		psQuery.setInt(1, uID);
-		
+		psQuery.execute();
 		ResultSet rs = psQuery.getResultSet();
 		
+		//System.out.println(rs.next());
 		while(rs.next())
 		{
-			user.setuDate(rs.getDate(1));
-			user.setuSex(new Byte(rs.getString(2)));
+			user_attachment.setuDate(rs.getDate(1));
+			user_attachment.setuGrade(rs.getInt(2));
+			user_attachment.setuSex(rs.getString(3));
+			user_attachment.setuRDate(rs.getTimestamp(4));
 		}
+		
 		rs.close();
 		psQuery.close();
-		conn.close();
-		return user;
+		DBConn.getClose();
+		
+		return user_attachment;
 	}
 }
